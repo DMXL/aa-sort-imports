@@ -1,25 +1,25 @@
 {
-  "name": "sort-imports",
-  "displayName": "sort-imports",
+  "name": "aa-sort-imports",
+  "displayName": "aa-sort-imports",
   "description": "Sort ES6 imports automatically.",
-  "version": "6.2.2",
+  "version": "0.1.0",
   "galleryBanner": {
-    "color": "#2980b9",
+    "color": "#0f2346",
     "theme": "dark"
   },
   "bugs": {
-    "url": "https://github.com/amatiasq/vsc-sort-imports/issues"
+    "url": "https://github.com/DMXL/aa-sort-imports/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/amatiasq/vsc-sort-imports.git"
+    "url": "https://github.com/DMXL/aa-sort-imports.git"
   },
   "icon": "assets/logo.png",
-  "publisher": "amatiasq",
+  "publisher": "dmxl",
   "engines": {
-    "vscode": "^1.48.0"
+    "vscode": "^1.49.3"
   },
-  "homepage": "https://github.com/amatiasq/vsc-sort-imports/blob/master/README.md",
+  "homepage": "https://github.com/DMXL/aa-sort-imports/blob/master/README.md",
   "license": "ISC",
   "categories": [
     "Programming Languages",
