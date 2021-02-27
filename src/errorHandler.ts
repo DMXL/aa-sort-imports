@@ -7,8 +7,8 @@ import {
   commands,
   window,
 } from 'vscode';
+import { EXTENSION_NAME, isUndefined } from './utils';
 
-import { EXTENSION_NAME } from './utils';
 import { skipFileSorting } from './sort';
 
 let statusBarItem: StatusBarItem;
@@ -21,12 +21,12 @@ const supportedLanguages = [
   'typescriptreact',
 ];
 
-export function toggleStatusBarItem(editor: TextEditor | undefined): void {
-  if (statusBarItem === undefined) {
+export function toggleStatusBarItem(editor: TextEditor): void {
+  if (isUndefined(statusBarItem)) {
     return;
   }
 
-  if (editor !== undefined) {
+  if (!isUndefined(editor)) {
     // The function will be triggered every time the active "editor" instance changes
     // It also triggers when we focus on the output panel or on the debug panel
     // Both are seen as an "editor".
@@ -37,9 +37,7 @@ export function toggleStatusBarItem(editor: TextEditor | undefined): void {
       return;
     }
 
-    const fileName = editor.document.isUntitled
-      ? undefined
-      : editor.document.fileName;
+    const fileName = !editor.document.isUntitled && editor.document.fileName;
 
     const skip = fileName && skipFileSorting(fileName);
 
@@ -113,6 +111,7 @@ export function safeExecution(
     updateStatusBar('Sort Imports: $(check)');
     return cb();
   } catch (err) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     addToOutput(addFilePath(err.message, fileName));
 
     updateStatusBar('Sort Imports: $(x)');
